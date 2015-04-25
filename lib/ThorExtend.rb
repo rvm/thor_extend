@@ -5,5 +5,9 @@ module ThorExtend
     def initialize(klass)
       @klass = klass
     end
+
+    def command(name)
+      ThorExtend::CommandWrapper.new
+    end
   end
 end
