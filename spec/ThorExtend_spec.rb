@@ -43,6 +43,10 @@ describe ThorExtend do
     let(:test_class) { example_cli }
     subject(:extender) { ThorExtend::OptionExtender.new(test_class) }
 
+    it 'raises if option_name is nil' do
+      expect { extender.command('my_example').add(nil, {}) }.to raise_error(ArgumentError)
+    end
+
     it 'adds a new option' do
       extender.command('my_example').add(:new_opt, {})
       expect(test_class.commands["my_example"].options.has_key?(:new_opt)).to be true

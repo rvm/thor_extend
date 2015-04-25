@@ -7,6 +7,7 @@ module ThorExtend
     end
 
     def add(option_name, args)
+      raise ArgumentError if option_name.nil?
       @command.options[option_name] = Thor::Option.new(option_name, {})
     end
   end
