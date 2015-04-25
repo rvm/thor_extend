@@ -1,8 +1,36 @@
 # ThorExtend
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ThorExtend`. To experiment with that code, run `bin/console` for an interactive prompt.
+ThorExtend adds options to already defined Thor commands.
+Normally, you define options like this:
 
-TODO: Delete this and the text above, and describe your gem
+```ruby
+require 'thor'
+class MyCLI < Thor
+  option :arg1
+  option :arg2
+  def action
+    #...
+  end
+end
+```
+
+This is only works if you know the options upfront but not if you need to define them at runtime dynamically.
+With ThorExtend you can add those when the cli class is already loaded:
+
+```ruby
+extender = ThorExtend.new(MyCLI)
+extender.command("action").add(:arg3, {})
+```
+
+Here you add `arg3` to the `action` command.
+The hash which is passed to `add` contains options you would normally pass additionally, e.g. a `type`.
+Example:
+
+```ruby
+option :yesno, :type => :boolean
+def action
+end
+```
 
 ## Installation
 
