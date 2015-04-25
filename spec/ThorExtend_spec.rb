@@ -56,6 +56,10 @@ describe ThorExtend do
       extender.command('my_example').add('new_opt', {})
       expect(test_class.commands["my_example"].options.has_key?(:new_opt)).to be true
     end
+
+    it 'returns itself' do
+      expect(extender.command('my_example').add('new_opt', {})).to be_kind_of(ThorExtend::CommandWrapper)
+    end
   end
 end
 
