@@ -51,6 +51,11 @@ describe ThorExtend do
       extender.command('my_example').add(:new_opt, {})
       expect(test_class.commands["my_example"].options.has_key?(:new_opt)).to be true
     end
+
+    it 'adds a new option given as string' do
+      extender.command('my_example').add('new_opt', {})
+      expect(test_class.commands["my_example"].options.has_key?(:new_opt)).to be true
+    end
   end
 end
 
