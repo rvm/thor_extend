@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = ThorExtend::VERSION
   spec.authors       = ["Jan Schulte"]
   spec.email         = ["hello@unexpected-co.de"]
+  spec.license       = ["Apache-2.0"]
 
   spec.summary       = %q{Dynamically extend options on a Thor::Command}
   spec.homepage      = "https://github.com/rvm/thor_extend"
@@ -17,7 +18,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.2"
   spec.add_development_dependency "thor"
