@@ -1,5 +1,9 @@
 require "ThorExtend/version"
 
 module ThorExtend
-  # Your code goes here...
+  class OptionExtender
+    def initialize(klass)
+      @klass = klass
+    end
+  end
 end
