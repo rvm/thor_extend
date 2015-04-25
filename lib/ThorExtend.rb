@@ -7,7 +7,7 @@ module ThorExtend
     end
 
     def command(name)
-      ThorExtend::CommandWrapper.new
+      ThorExtend::CommandWrapper.new(@klass.commands[name])
     end
   end
 end

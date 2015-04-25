@@ -3,6 +3,9 @@ require 'thor_extend/command_wrapper'
 require 'thor'
 
 class ExampleCLI < Thor
+  desc "foo", "bar"
+  def my_example
+  end
 end
 
 describe ThorExtend do
@@ -24,8 +27,8 @@ describe ThorExtend do
     end
 
     context 'the returned wrapper' do
-      it 'has a command property' do
-        expect(extender.command('my_command')).to respond_to(:command)
+      it 'contains the actual command' do
+        expect(extender.command('my_example').command).to be_a_kind_of(Thor::Command)
       end
     end
   end
