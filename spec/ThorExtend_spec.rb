@@ -22,6 +22,12 @@ describe ThorExtend do
     it 'returns a specific Thor command' do
       expect(extender.command('my_command')).to be_a_kind_of ThorExtend::CommandWrapper
     end
+
+    context 'the returned wrapper' do
+      it 'has a command property' do
+        expect(extender.command('my_command')).to respond_to(:command)
+      end
+    end
   end
 
   # describe "#add" do
