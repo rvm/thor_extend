@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = ThorExtend::VERSION
   spec.authors       = ["Jan Schulte"]
   spec.email         = ["hello@unexpected-co.de"]
-  spec.license       = ["Apache-2.0"]
+  spec.license       = "Apache-2.0"
 
   spec.summary       = %q{Dynamically extend options on a Thor::Command}
   spec.homepage      = "https://github.com/rvm/thor_extend"
