@@ -2,25 +2,26 @@ require 'spec_helper'
 require 'thor_extend/command_wrapper'
 require 'thor'
 
-class ExampleCLI < Thor
-  desc "foo", "bar"
-  def my_example
-  end
-end
-
 describe ThorExtend do
+  def example_cli
+    Class.new(Thor) do
+      desc "foo", "bar"
+      def my_example
+      end
+    end
+  end
   it 'has a version number' do
     expect(ThorExtend::VERSION).not_to be nil
   end
 
   describe '#initialize' do
     it 'accepts a cli class' do
-      expect { ThorExtend::OptionExtender.new(ExampleCLI) }.to_not raise_error
+      expect { ThorExtend::OptionExtender.new(example_cli) }.to_not raise_error
     end
   end
 
   describe "#command" do
-    subject(:extender) { ThorExtend::OptionExtender.new(ExampleCLI) }
+    subject(:extender) { ThorExtend::OptionExtender.new(example_cli) }
 
     it 'returns a specific Thor command' do
       expect(extender.command('my_command')).to be_a_kind_of ThorExtend::CommandWrapper
@@ -37,7 +38,8 @@ describe ThorExtend do
   #   subject(:extender) { ThorExtend::OptionExtender.new(ExampleCLI) }
 
   #   it 'adds a new option' do
-  #     extender.command('my_command').add(:new_opt, {}).add(:new_opt, {})
+  #     extender.command('my_command').add(:new_opt, {})
+  #     expect(ExampleCLI.commands["my_example"].options.has_key?(:new_opt)).to be true
   #   end
   # end
 end
