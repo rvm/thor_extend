@@ -7,7 +7,12 @@ module ThorExtend
     end
 
     def command(name)
-      ThorExtend::CommandWrapper.new(@klass.commands[name])
+      cmd = @klass.commands[name]
+      if cmd
+        ThorExtend::CommandWrapper.new(cmd)
+      else
+        nil
+      end
     end
   end
 end

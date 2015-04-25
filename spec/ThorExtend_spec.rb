@@ -10,6 +10,7 @@ describe ThorExtend do
       end
     end
   end
+
   it 'has a version number' do
     expect(ThorExtend::VERSION).not_to be nil
   end
@@ -23,8 +24,12 @@ describe ThorExtend do
   describe "#command" do
     subject(:extender) { ThorExtend::OptionExtender.new(example_cli) }
 
+    it 'returns nil if command was not found' do
+      expect(extender.command('something')).to be nil
+    end
+
     it 'returns a specific Thor command' do
-      expect(extender.command('my_command')).to be_a_kind_of ThorExtend::CommandWrapper
+      expect(extender.command('my_example')).to be_a_kind_of ThorExtend::CommandWrapper
     end
 
     context 'the returned wrapper' do
