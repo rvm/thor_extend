@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'ThorExtend/command_wrapper'
+require 'thor_extend/command_wrapper'
 require 'thor'
 
 class ExampleCLI < Thor

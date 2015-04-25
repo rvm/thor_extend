@@ -1,4 +1,4 @@
-require "ThorExtend/version"
+require "thor_extend/version"
 
 module ThorExtend
   class OptionExtender
