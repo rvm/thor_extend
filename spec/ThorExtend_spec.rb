@@ -34,13 +34,14 @@ describe ThorExtend do
     end
   end
 
-  # describe "#add" do
-  #   subject(:extender) { ThorExtend::OptionExtender.new(ExampleCLI) }
+  describe "#add" do
+    let(:test_class) { example_cli }
+    subject(:extender) { ThorExtend::OptionExtender.new(test_class) }
 
-  #   it 'adds a new option' do
-  #     extender.command('my_command').add(:new_opt, {})
-  #     expect(ExampleCLI.commands["my_example"].options.has_key?(:new_opt)).to be true
-  #   end
-  # end
+    it 'adds a new option' do
+      extender.command('my_example').add(:new_opt, {})
+      expect(test_class.commands["my_example"].options.has_key?(:new_opt)).to be true
+    end
+  end
 end
 
